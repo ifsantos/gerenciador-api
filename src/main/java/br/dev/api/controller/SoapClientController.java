@@ -27,7 +27,7 @@ public class SoapClientController {
 		Type val = new Type();
 		
 		Class<Type> type = Type.class;
-		QName qname = new QName("uhuuul");
+		QName qname = new QName("testing");
 		JAXBElement<Type> value = new JAXBElement<Type>(qname, type, val);
 		parameters.setType(value);
 		ImplementsResponse implementa = consultaWS.implementa(parameters );

@@ -2,6 +2,8 @@ package br.dev.configuration;
 
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,7 +14,7 @@ import javax.xml.ws.BindingProvider;
 
 @Configuration
 public class SoapClientConfiguration {
-	
+	static Logger log = LoggerFactory.getLogger(SoapClientConfiguration.class);
 	@Bean
 	public IwsConsultaSQL getWS() {
 		enableSoapLog();
@@ -28,6 +30,7 @@ public class SoapClientConfiguration {
 	}
 
 	private void enableSoapLog() {
+		log.info("Enabling HTTP console output for SOAP debug.");
 		System.setProperty("com.sun.xml.ws.transport.http.client.HttpTransportPipe.dump", "true");
 		System.setProperty("com.sun.xml.internal.ws.transport.http.client.HttpTransportPipe.dump", "true");
 		System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
