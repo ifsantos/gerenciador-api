@@ -1,14 +1,21 @@
 package br.dev.domain.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ItemVenda {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long quantidade;
-	private Produto produto;
+	@Column(name = "produto_id")
+	private Long produtoId;
+	@Column(name = "venda_id")
+	private Long vendaId;
 	
 	public Long getId() {
 		return id;
@@ -22,11 +29,18 @@ public class ItemVenda {
 	public void setQuantidade(Long quantidade) {
 		this.quantidade = quantidade;
 	}
-	public Produto getProduto() {
-		return produto;
+	
+	public Long getProdutoId() {
+		return produtoId;
 	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
+	public void setProdutoId(Long produtoId) {
+		this.produtoId = produtoId;
+	}
+	public Long getVendaId() {
+		return vendaId;
+	}
+	public void setVendaId(Long vendaId) {
+		this.vendaId = vendaId;
 	}
 	@Override
 	public int hashCode() {

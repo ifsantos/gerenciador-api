@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<S:Envelope
+	xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+	<S:Body>
+		<RealizarConsultaSQL xmlns="http://www.totvs.com/"
+			xmlns:ns2="http://schemas.microsoft.com/2003/10/Serialization/"
+			xmlns:ns3="http://schemas.datacontract.org/2004/07/System"
+			xmlns:ns4="http://schemas.datacontract.org/2004/07/System.Reflection">
+			<codSentenca>abc</codSentenca>
+			<codColigada>123</codColigada>
+			<codSistema>ax12</codSistema>
+			<parameters>bc34</parameters>
+			<context>wy90</context>
+		</RealizarConsultaSQL>
+	</S:Body>
+</S:Envelope>

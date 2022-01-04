@@ -21,8 +21,7 @@ public class VendaService {
 	private ProdutoRepository prodRepo;
 	
 	public Venda criar(Venda v) {
-		Cliente cliente = validarCliente(v.getCliente());
-		v.setCliente(cliente);
+		v.setCliente(validarCliente(v.getCliente()));
 		v.setItens(validarItens(v.getItens()));
 		v.setData(OffsetDateTime.now());
 		return repo.save(v);
@@ -34,8 +33,9 @@ public class VendaService {
 	}
 
 	private List<ItemVenda> validarItens(List<ItemVenda> itens) {
-		/*
+		/**
 		 * Code Snippet about collectors. EX:
+		 * 
 		 * 	v.getItens() 
 		 * 		.stream()
 		 * 		.map(prodRepo.findById(iv.getId()).get()) 

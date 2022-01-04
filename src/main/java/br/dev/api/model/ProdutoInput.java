@@ -14,6 +14,7 @@ public class ProdutoInput {
 	@Positive
 	private Double preco;
 	
+	private String observacoes;
 	
 	public Long getId() {
 		return id;
@@ -37,6 +38,14 @@ public class ProdutoInput {
 
 	public void setPreco(Double preco) {
 		this.preco = preco;
+	}
+
+	public String getObservacoes() {
+		return observacoes;
+	}
+
+	public void setObservacoes(String observacoes) {
+		this.observacoes = observacoes;
 	}
 	
 }

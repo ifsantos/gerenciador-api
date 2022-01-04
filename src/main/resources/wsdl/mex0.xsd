@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified"
+	targetNamespace="http://www.totvs.com/"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.totvs.com/">
+	<xs:import
+		schemaLocation="mex2.xsd"
+		namespace="http://schemas.datacontract.org/2004/07/System" />
+	<xs:element name="Implements">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="type" nillable="true"
+					type="q1:Type"
+					xmlns:q1="http://schemas.datacontract.org/2004/07/System" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="ImplementsResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="ImplementsResult"
+					type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CheckServiceActivity">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="CheckServiceActivityResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+					name="CheckServiceActivityResult" type="xs:boolean" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AutenticaAcesso">
+		<xs:complexType>
+			<xs:sequence />
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="AutenticaAcessoResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="AutenticaAcessoResult"
+					nillable="true" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RealizarConsultaSQL">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0" name="codSentenca"
+					nillable="true" type="xs:string" />
+				<xs:element minOccurs="0" name="codColigada"
+					type="xs:int" />
+				<xs:element minOccurs="0" name="codSistema"
+					nillable="true" type="xs:string" />
+				<xs:element minOccurs="0" name="parameters"
+					nillable="true" type="xs:string" />
+				<xs:element minOccurs="0" name="context" nillable="true"
+					type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="RealizarConsultaSQLResponse">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element minOccurs="0"
+					name="RealizarConsultaSQLResult" nillable="true" type="xs:string" />
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
