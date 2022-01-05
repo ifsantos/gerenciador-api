@@ -2,15 +2,12 @@ package br.dev.api.controller;
 
 
 import java.util.List;
-import java.util.Set;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
-import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.dev.domain.model.ItemVenda;
-import br.dev.domain.model.Venda;
 import br.dev.domain.repository.ItemVendaRepository;
 
 @RestController

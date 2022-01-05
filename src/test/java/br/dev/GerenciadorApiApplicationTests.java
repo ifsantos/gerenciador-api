@@ -31,6 +31,7 @@ class GerenciadorApiApplicationTests {
 		//assertEquals(2, distance);
 	}
 
+	@SuppressWarnings("deprecation")
 	public static void main(String[] args) {
 		String hello = "hello";
 		String kelo = "elo";
