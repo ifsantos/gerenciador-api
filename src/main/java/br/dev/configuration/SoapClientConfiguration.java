@@ -1,6 +1,9 @@
 package br.dev.configuration;
 
+import java.net.URL;
 import java.util.Map;
+
+import javax.xml.ws.BindingProvider;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,16 +13,19 @@ import org.springframework.context.annotation.Configuration;
 import com.example.myservice.IwsConsultaSQL;
 import com.example.myservice.WsConsultaSQL;
 
-import javax.xml.ws.BindingProvider;
-
 @Configuration
 public class SoapClientConfiguration {
 	static Logger log = LoggerFactory.getLogger(SoapClientConfiguration.class);
 	@Bean
 	public IwsConsultaSQL getWS() {
 		enableSoapLog();
+		URL url = null;
 		
-		IwsConsultaSQL service = new WsConsultaSQL().getRMIwsConsultaSQL();
+		try {
+			url = new URL("classpath:wsdl/ServiceTotvs.wsdl");
+		} catch (Exception e) { e.printStackTrace();}
+		
+		IwsConsultaSQL service = new WsConsultaSQL(url).getRMIwsConsultaSQL();
 		
 		Map<String,Object> reqContext = ((BindingProvider) service).getRequestContext();
 		reqContext.put(BindingProvider.USERNAME_PROPERTY, "user");

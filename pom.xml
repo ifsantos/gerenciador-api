@@ -34,10 +34,17 @@
 		        </exclusion>
 			</exclusions>
 		</dependency>
-
+		<!-- 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		 -->
+		<!-- In memory DB for tests -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
@@ -85,14 +92,11 @@
 		    <artifactId>jaxb-core</artifactId>
 		    <version>2.3.0.1</version>
 		</dependency>
-		<!-- 
-		 -->
 		<dependency>
 		    <groupId>com.sun.xml.bind</groupId>
 		    <artifactId>jaxb-impl</artifactId>
 		    <version>2.3.5</version>
 		</dependency>
-		
 	</dependencies>
 
 	<build>
@@ -108,7 +112,6 @@
 			</plugin>
 
 			<!-- WSimport plugin -->
-
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>jaxws-maven-plugin</artifactId>
@@ -121,14 +124,11 @@
 					</execution>
 				</executions>
 				<configuration>
-					<!-- The name of your generated source package -->
 					<packageName>com.example.myservice</packageName>
 					<wsdlDirectory>src/main/resources/wsdl</wsdlDirectory>
-
 				</configuration>
 
-				<!-- if you want to use a specific version of JAX-WS, you can do so like 
-					this -->
+				<!-- if U want to use a specific version of JAX-WS, U can do so like this -->
 				<dependencies>
 					<dependency>
 						<groupId>com.sun.xml.ws</groupId>
@@ -152,7 +152,6 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
-				<!-- <version>2.3</version>  -->
 				<executions>
 					<execution>
 						<phase>validate</phase>
@@ -190,8 +189,6 @@
 					</execution>
 				</executions>
 			</plugin>
-
 		</plugins>
 	</build>
-
 </project>
