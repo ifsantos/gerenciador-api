@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.example.myservice.IwsConsultaSQL;
 import com.example.myservice.WsConsultaSQL;
@@ -34,7 +33,7 @@ public class SoapClientConfiguration {
 		Map<String,Object> reqContext = ((BindingProvider) service).getRequestContext();
 		reqContext.put(BindingProvider.USERNAME_PROPERTY, "user");
 		reqContext.put(BindingProvider.PASSWORD_PROPERTY, "passw");
-		reqContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/clientes");
+		reqContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/soapclient/imp");
 		
 		return service;
 	}
@@ -54,7 +53,7 @@ public class SoapClientConfiguration {
 		
 		@Override
 		public void addCorsMappings(CorsRegistry registry) {
-			log.info("Allowing requests from all origins");
+			log.info("Allowing request from all origins");
 			registry.addMapping("/**")
 			.allowedOrigins("*");
 		}
