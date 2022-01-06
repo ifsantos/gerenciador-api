@@ -33,7 +33,7 @@ public class SoapClientConfiguration {
 		Map<String,Object> reqContext = ((BindingProvider) service).getRequestContext();
 		reqContext.put(BindingProvider.USERNAME_PROPERTY, "user");
 		reqContext.put(BindingProvider.PASSWORD_PROPERTY, "passw");
-		reqContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/soapclient/imp");
+		reqContext.put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, "http://localhost:8080/soapclient/consulta");
 		
 		return service;
 	}
