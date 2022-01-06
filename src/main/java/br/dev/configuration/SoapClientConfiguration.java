@@ -9,6 +9,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.example.myservice.IwsConsultaSQL;
 import com.example.myservice.WsConsultaSQL;
@@ -42,6 +46,18 @@ public class SoapClientConfiguration {
 		System.setProperty("com.sun.xml.ws.transport.http.HttpAdapter.dump", "true");
 		System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dump", "true");
 		System.setProperty("com.sun.xml.internal.ws.transport.http.HttpAdapter.dumpTreshold", "999999");
+	}
+	
+	@Configuration
+	@EnableWebMvc
+	public class RequestCross implements WebMvcConfigurer  {
+		
+		@Override
+		public void addCorsMappings(CorsRegistry registry) {
+			log.info("Allowing requests from all origins");
+			registry.addMapping("/**")
+			.allowedOrigins("*");
+		}
 	}
 }
 
